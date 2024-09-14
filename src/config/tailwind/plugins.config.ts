@@ -3,6 +3,7 @@ import plugin from "tailwindcss/plugin";
 export const plugins = [
   // require("@tailwindcss/forms"),
   // require("@tailwindcss/aspect-ratio"),
+  /* eslint-disable */
   plugin(({ addComponents, theme, addUtilities, addBase }) => {
     addComponents({}),
       addUtilities({
