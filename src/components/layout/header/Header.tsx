@@ -2,10 +2,10 @@
 import { useState } from "react";
 import clsx from "clsx";
 import ThemeSwitcher from "@/components/ui/theme-switcher/ThemeSwitcher";
-import { cookies, headers } from "next/headers";
 import { Theme } from "@/components/ui/theme-switcher/theme.type";
 
 export function Header() {
+  /* eslint-disable @typescript-eslint/no-unused-vars */
   const [isOpen, setIsOpen] = useState(false);
 
   return (

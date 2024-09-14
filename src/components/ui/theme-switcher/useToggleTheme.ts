@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Theme } from "./theme.type";
 
 export const useToggleTheme = (currentTheme: Theme) => {
