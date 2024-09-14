@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Nextjs Starter Template
 
-## Getting Started
+My go-to project starter template for Next.js apps. Inspired by [my portfolio](https://portfolio-nu-nine-81.vercel.app/)
 
-First, run the development server:
+## 👓 Preview
+
+Preview it on [stackblitz](https://icediver.github.io/nextjs-starter-template/) without installing anything locally.
+
+## 🚀 Getting Started
+
+First, run the following command to create a new project:
+
+```bash
+npx create-next-app my-app -e https://github.com/icediver/nextjs-starter-template
+```
+
+or if you're using yarn
+
+```bash
+yarn create next-app my-app -e https://github.com/icediver/nextjs-starter-template
+```
+
+After the installation of the project, navigate to the project directory and run the following command to spin up the development server
 
 ```bash
 npm run dev
-# or
+```
+
+or if you're using yarn
+
+```bash
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ✨ Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Next.js / Sass
+- Prebuild basic components like Layout, Navbar, and Footer.
+- A CustomLink component which handles both internal & external links
+- Basic CSS reset
+- Default responsive media queries for tablet, laptop and desktop breakpoints
+- Styles structure orgainzed
+- Prettier as dev dependency
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+To learn more about Next.js and Sass, take a look at the following resources:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [SASS guide](https://sass-lang.com/guide) - learn about SASS
