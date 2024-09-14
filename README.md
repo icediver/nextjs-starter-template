@@ -4,7 +4,7 @@ My go-to project starter template for Next.js apps. Inspired by [my portfolio](h
 
 ## 👓 Preview
 
-Preview it on [stackblitz](https://icediver.github.io/nextjs-starter-template/) without installing anything locally.
+Preview it on [pages](https://icediver.github.io/nextjs-starter-template/) without installing anything locally.
 
 ## 🚀 Getting Started
 
