@@ -34,7 +34,6 @@ export default async function RootLayout({
 	children: React.ReactNode;
 }>) {
 	const theme = await getTheme();
-	console.log(theme);
 
 	return (
 		<html lang="en">
