@@ -28,12 +28,14 @@ async function getTheme() {
 	return theme;
 }
 
-export default function RootLayout({
+export default async function RootLayout({
 	children,
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
-	const theme = getTheme();
+	const theme = await getTheme();
+	console.log(theme);
+
 	return (
 		<html lang="en">
 			<body
