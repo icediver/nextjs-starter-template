@@ -6,6 +6,7 @@ import { Theme } from '@/components/ui/theme-switcher/theme.type';
 import { Hamburger } from './hamburger/Hamburger';
 import styles from './Header.module.scss';
 import { MenuList } from './menu-list/MenuList';
+import { Logo } from './logo/Logo';
 
 export function Header() {
 	const [isOpen, setIsOpen] = useState(false);
@@ -25,7 +26,7 @@ export function Header() {
 			})}
 		>
 			<div className="container relative mx-auto flex h-20 items-center justify-between bg-[var(--navbar)] px-6 lg:w-full">
-				<div>header</div>
+				<Logo />
 				<MenuList isOpen={isOpen} />
 				<div className="flex items-center gap-4">
 					<ThemeSwitcher theme={Theme.dark} />
