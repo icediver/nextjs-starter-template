@@ -4,7 +4,7 @@ My go-to project starter template for Next.js apps. Inspired by [my portfolio](h
 
 ## 👓 Preview
 
-Preview it on [pages]((https://nextjs-starter-template-eight.vercel.app/)) without installing anything locally.
+Preview it on [vercel]((https://nextjs-starter-template-eight.vercel.app/)) without installing anything locally.
 
 ## 🚀 Getting Started
 
