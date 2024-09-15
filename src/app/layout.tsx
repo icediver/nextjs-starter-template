@@ -21,7 +21,10 @@ export const metadata: Metadata = {
 };
 
 async function getTheme() {
-	const theme = cookies().get('theme');
+	const theme = cookies().get('theme')?.value;
+	if (!theme) {
+		return 'normal';
+	}
 	return theme;
 }
 
@@ -34,7 +37,7 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body
-				className={`${geistSans.variable} ${geistMono.variable} antialiased ${theme?.value || 'normal'}`}
+				className={`${geistSans.variable} ${geistMono.variable} antialiased ${theme}`}
 			>
 				<CustomLayout>{children}</CustomLayout>
 			</body>
