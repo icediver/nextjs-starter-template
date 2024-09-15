@@ -4,8 +4,8 @@ export interface INavList {
 }
 
 export const menuItems: INavList[] = [
-	{ title: 'About', url: '/' },
-	{ title: 'Services', url: '/' },
-	{ title: 'Technologies', url: '/' },
-	{ title: 'contacts', url: '/' },
+	{ title: 'About', url: '/about' },
+	{ title: 'Services', url: '/services' },
+	{ title: 'Technologies', url: '/technologies' },
+	{ title: 'contacts', url: '/contacts' },
 ];
