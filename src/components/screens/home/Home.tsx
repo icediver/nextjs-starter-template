@@ -1,7 +1,12 @@
 export function Home() {
   return (
-    <section className="w-[1080px] mx-auto h-[800px] px-6 bg-[var(--section)] flex items-center justify-center">
-      <h1>Hero section</h1>
-    </section>
+    <main className="container mx-auto">
+      <section className="h-[400px] px-6 bg-[var(--section)] flex items-center justify-center">
+        <h1>First section</h1>
+      </section>
+      <section className="h-[400px] px-6 bg-[var(--section)] flex items-center justify-center">
+        <h1>Second section</h1>
+      </section>
+    </main>
   );
 }

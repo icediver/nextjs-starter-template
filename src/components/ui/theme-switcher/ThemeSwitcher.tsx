@@ -12,11 +12,11 @@ interface IThemeSwitcher {
 export default function ThemeSwitcher({ theme: currentTheme }: IThemeSwitcher) {
   const { theme, toogleTheme } = useToggleTheme(currentTheme);
   return (
-    <button onClick={toogleTheme}>
+    <button onClick={toogleTheme} className="z-10">
       {theme === Theme.dark ? (
-        <Sun className="h-5 w-5  fill-yellow-500" />
+        <Sun className="h-8 w-8  fill-yellow-500" />
       ) : (
-        <Moon className="h-5 w-5 " />
+        <Moon className="h-7 w-7 [&>path]:fill-gray-300" />
       )}
     </button>
   );

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "../assets/styles/globals.scss";
 import { CustomLayout } from "@/components/layout/CustomLayout";
+import { cookies } from "next/headers";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -24,10 +25,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const theme = cookies().get("theme");
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased normal`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased ${theme?.value || "normal"}`}
       >
         <CustomLayout>{children}</CustomLayout>
       </body>

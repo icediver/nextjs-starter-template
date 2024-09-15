@@ -1,24 +1,40 @@
-"use client";
-import { useState } from "react";
-import clsx from "clsx";
-import ThemeSwitcher from "@/components/ui/theme-switcher/ThemeSwitcher";
-import { Theme } from "@/components/ui/theme-switcher/theme.type";
+'use client';
+import { useEffect, useState } from 'react';
+import clsx from 'clsx';
+import ThemeSwitcher from '@/components/ui/theme-switcher/ThemeSwitcher';
+import { Theme } from '@/components/ui/theme-switcher/theme.type';
+import { Hamburger } from './hamburger/Hamburger';
+import styles from './Header.module.scss';
+import { MenuList } from './menu-list/MenuList';
 
 export function Header() {
-  /* eslint-disable @typescript-eslint/no-unused-vars */
-  const [isOpen, setIsOpen] = useState(false);
+	const [isOpen, setIsOpen] = useState(false);
 
-  return (
-    <header
-      className={clsx(" z-50 w-[1080px] mx-auto", {
-        ["bottom-0 right-0 top-0 w-full overflow-hidden bg-[var(--navbar)] transition-colors duration-500"]:
-          isOpen,
-      })}
-    >
-      <div className="mx-auto flex w-[390px] items-center bg-[var(--navbar)] justify-between px-6  xl:w-full xl:h-20">
-        header
-        <ThemeSwitcher theme={Theme.dark} />
-      </div>
-    </header>
-  );
+	useEffect(() => {
+		if (isOpen) {
+			document.body.style.overflow = 'hidden';
+		} else {
+			document.body.style.overflow = 'unset';
+		}
+	}, [isOpen]);
+
+	return (
+		<header
+			className={clsx('fixed left-0 top-0 z-50 w-full', {
+				[styles.header]: isOpen,
+			})}
+		>
+			<div className="container relative mx-auto flex h-20 items-center justify-between bg-[var(--navbar)] px-6 lg:w-full">
+				<div>header</div>
+				{/*
+        <MenuList isOpen={isOpen} />
+*/}
+				<MenuList variant="mobile" isOpen={isOpen} />
+				<div className="flex items-center gap-4">
+					<ThemeSwitcher theme={Theme.dark} />
+					<Hamburger isOpen={isOpen} setIsOpen={setIsOpen} />
+				</div>
+			</div>
+		</header>
+	);
 }
