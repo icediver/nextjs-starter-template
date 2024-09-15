@@ -26,10 +26,7 @@ export function Header() {
 		>
 			<div className="container relative mx-auto flex h-20 items-center justify-between bg-[var(--navbar)] px-6 lg:w-full">
 				<div>header</div>
-				{/*
-        <MenuList isOpen={isOpen} />
-*/}
-				<MenuList variant="mobile" isOpen={isOpen} />
+				<MenuList isOpen={isOpen} />
 				<div className="flex items-center gap-4">
 					<ThemeSwitcher theme={Theme.dark} />
 					<Hamburger isOpen={isOpen} setIsOpen={setIsOpen} />
