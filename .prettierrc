@@ -6,14 +6,15 @@
 	"singleQuote": true,
 	"importOrder": [
 		"<THIRD_PARTY_MODULES>",
-		"^@/screens/(.*)$",
 		"^@/components/(.*)$",
+		"^@/screens/(.*)$",
 		"^@/ui/(.*)$",
 		"^@/hooks/(.*)$",
 		"^@/shared/(.*)$",
 		"^@/services/(.*)$",
 		"^@/assets/(.*)$",
 		"^@/utils/(.*)$",
+    "^@/types/(.*)$",
 		"^@/configs/(.*)$",
 		"^@/store/(.*)$",
 		"^../(.*)",
@@ -22,6 +23,8 @@
 	],
 	"importOrderSeparation": true,
 	"importOrderSortSpecifiers": true,
-	"plugins": ["prettier-plugin-tailwindcss"],
+	"plugins": [
+    "@trivago/prettier-plugin-sort-imports",
+    "prettier-plugin-tailwindcss"],
 	"tailwindFunctions": ["clsx"]
 }
