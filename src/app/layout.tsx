@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import { cookies } from 'next/headers';
 
-import { CustomLayout } from '@/components/layout/CustomLayout';
-
 import '../assets/styles/globals.scss';
+
+import { QueryProvider } from '@/providers/query-provider';
 
 const geistSans = localFont({
 	src: './fonts/GeistVF.woff',
@@ -46,8 +46,9 @@ export default async function RootLayout({
 	return (
 		<html lang="en">
 			<body
-				className={`${geistSans.variable} ${geistMono.variable} antialiased ${theme}`}>
-				<CustomLayout>{children}</CustomLayout>
+				className={`${geistSans.variable} ${geistMono.variable} antialiased ${theme}`}
+			>
+				<QueryProvider>{children}</QueryProvider>
 			</body>
 		</html>
 	);

@@ -1,12 +1,16 @@
 'use client';
-import { useEffect, useState } from 'react';
+
 import clsx from 'clsx';
+import { useEffect, useState } from 'react';
+
 import ThemeSwitcher from '@/components/ui/theme-switcher/ThemeSwitcher';
 import { Theme } from '@/components/ui/theme-switcher/theme.type';
-import { Hamburger } from './hamburger/Hamburger';
+import { UserButton } from '@/components/ui/user-button';
+
 import styles from './Header.module.scss';
-import { MenuList } from './menu-list/MenuList';
+import { Hamburger } from './hamburger/Hamburger';
 import { Logo } from './logo/Logo';
+import { MenuList } from './menu-list/MenuList';
 
 export function Header() {
 	const [isOpen, setIsOpen] = useState(false);
@@ -29,8 +33,12 @@ export function Header() {
 				<Logo />
 				<MenuList isOpen={isOpen} />
 				<div className="flex items-center gap-4">
+					<UserButton />
 					<ThemeSwitcher theme={Theme.dark} />
-					<Hamburger isOpen={isOpen} setIsOpen={setIsOpen} />
+					<Hamburger
+						isOpen={isOpen}
+						setIsOpen={setIsOpen}
+					/>
 				</div>
 			</div>
 		</header>
