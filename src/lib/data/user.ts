@@ -1,5 +1,8 @@
-import { cache } from 'react';
+'use server';
+
 import 'server-only';
+
+import { cache } from 'react';
 
 import { db } from '../db.utils';
 

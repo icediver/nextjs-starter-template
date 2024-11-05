@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import { cookies } from 'next/headers';
 
+import { Toaster } from '@/components/ui/shadcn/toaster';
+
 import '../assets/styles/globals.scss';
 
 import { QueryProvider } from '@/providers/query-provider';
@@ -31,7 +33,7 @@ export const metadata: Metadata = {
 async function getTheme() {
 	const theme = cookies().get('theme')?.value;
 	if (!theme) {
-		return 'normal';
+		return null;
 	}
 	return theme;
 }
@@ -46,8 +48,8 @@ export default async function RootLayout({
 	return (
 		<html lang="en">
 			<body
-				className={`${geistSans.variable} ${geistMono.variable} antialiased ${theme}`}
-			>
+				className={`transition duration-700 ${geistSans.variable} ${geistMono.variable} antialiased ${theme}`}>
+				<Toaster />
 				<QueryProvider>{children}</QueryProvider>
 			</body>
 		</html>

@@ -22,10 +22,13 @@ import {
 } from '@/components/ui/shadcn/form';
 import { Input } from '@/components/ui/shadcn/input';
 
+import { useToast } from '@/hooks/use-toast';
+
 import { login } from '@/actions/auth/register.actions';
 import { LoginFormSchema } from '@/actions/auth/register.schema';
 
 export function LoginCard() {
+	const { toast } = useToast();
 	const form = useForm<z.infer<typeof LoginFormSchema>>({
 		resolver: zodResolver(LoginFormSchema),
 		defaultValues: {
@@ -34,8 +37,16 @@ export function LoginCard() {
 		},
 	});
 
-	function onSubmit(values: z.infer<typeof LoginFormSchema>) {
-		login(values);
+	async function onSubmit(values: z.infer<typeof LoginFormSchema>) {
+		const result = await login(values);
+		if (result?.message) {
+			toast({ variant: 'destructive', title: result.message });
+		} else {
+			toast({
+				variant: 'success',
+				title: 'Login successful',
+			});
+		}
 	}
 	return (
 		<Card className="h-full w-full md:w-[487px]">
@@ -49,8 +60,7 @@ export function LoginCard() {
 				<Form {...form}>
 					<form
 						onSubmit={form.handleSubmit(onSubmit)}
-						className="space-y-4"
-					>
+						className="space-y-4">
 						<FormField
 							name="email"
 							control={form.control}
@@ -86,8 +96,7 @@ export function LoginCard() {
 
 						<Button
 							size="lg"
-							className="w-full"
-						>
+							className="w-full">
 							Login
 						</Button>
 					</form>
@@ -104,8 +113,7 @@ export function LoginCard() {
 					Don&apos;t have an account?
 					<Link
 						className="text-blue-700"
-						href="/signup"
-					>
+						href="/signup">
 						&nbsp;Sign Up
 					</Link>
 				</p>

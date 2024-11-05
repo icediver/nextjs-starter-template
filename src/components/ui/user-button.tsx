@@ -39,7 +39,7 @@ export function UserButton() {
 		<DropdownMenu modal={false}>
 			<DropdownMenuTrigger className="relative outline-none">
 				<div className="">
-					<Avatar className="size-10 border border-neutral-300 transition hover:opacity-75">
+					<Avatar className="size-10 border-none border-neutral-300 transition hover:opacity-75">
 						<AvatarFallback className="flex items-center justify-center bg-neutral-200 font-medium text-neutral-500">
 							{avatarFallback}
 						</AvatarFallback>
@@ -50,11 +50,10 @@ export function UserButton() {
 				align="end"
 				side="bottom"
 				className="w-60 bg-neutral-100"
-				sideOffset={10}
-			>
+				sideOffset={10}>
 				<div className="flex flex-col items-center justify-center gap-2 px-2.5 py-4">
-					<Avatar className="size-[52px] border border-neutral-300 ">
-						<AvatarFallback className="flex items-center justify-center bg-neutral-200 text-xl font-medium text-neutral-500">
+					<Avatar className="size-[52px]  border-none ">
+						<AvatarFallback className="flex items-center justify-center  bg-neutral-200 text-xl font-medium text-neutral-500">
 							{avatarFallback}
 						</AvatarFallback>
 					</Avatar>
@@ -68,8 +67,7 @@ export function UserButton() {
 				<DottedSeparator className="mb-1" />
 				<DropdownMenuItem
 					onClick={() => logout()}
-					className="flex h-10 cursor-pointer items-center justify-center font-medium text-amber-700"
-				>
+					className="flex h-10 cursor-pointer items-center justify-center font-medium text-amber-700">
 					<LogOut className="size-4 mr-2" />
 					Log out
 				</DropdownMenuItem>

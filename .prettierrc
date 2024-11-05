@@ -5,17 +5,19 @@
 	"semi": true,
 	"singleQuote": true,
 	"importOrder": [
+		"^server-only",
 		"<THIRD_PARTY_MODULES>",
 		"^@/components/(.*)$",
 		"^@/screens/(.*)$",
-		"^@/ui/(.*)$",
+		"^@/components/ui/(.*)$",
 		"^@/hooks/(.*)$",
 		"^@/shared/(.*)$",
 		"^@/services/(.*)$",
 		"^@/assets/(.*)$",
 		"^@/utils/(.*)$",
-    "^@/types/(.*)$",
-		"^@/configs/(.*)$",
+		"^@/lib/(.*)$",
+		"^@/types/(.*)$",
+		"^@/config/(.*)$",
 		"^@/store/(.*)$",
 		"^../(.*)",
 		"^./(.*)",
@@ -23,7 +25,5 @@
 	],
 	"importOrderSeparation": true,
 	"importOrderSortSpecifiers": true,
-	"plugins": [
-    "@trivago/prettier-plugin-sort-imports",
-  ] 
+	"plugins": ["@trivago/prettier-plugin-sort-imports"]
 }

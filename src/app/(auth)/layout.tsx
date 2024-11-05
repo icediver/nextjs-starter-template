@@ -13,7 +13,7 @@ export default function AuthLayout({ children }: Props) {
 	const isSignIn = pathname === '/sign-in';
 
 	return (
-		<main className="min-h-screen bg-neutral-100">
+		<main className="bg-main-background min-h-screen">
 			<div className="mx-auto max-w-screen-2xl p-4">
 				<nav className="flex items-center justify-between">
 					<Link href="/">
@@ -26,8 +26,7 @@ export default function AuthLayout({ children }: Props) {
 					</Link>
 					<Button
 						asChild
-						variant={'secondary'}
-					>
+						variant={'secondary'}>
 						<Link href={isSignIn ? '/sign-up' : '/sign-in'}>
 							{isSignIn ? 'Sign Up' : 'Login'}
 						</Link>

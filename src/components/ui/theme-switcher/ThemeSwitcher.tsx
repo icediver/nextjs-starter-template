@@ -1,18 +1,17 @@
 'use client';
 
-import { Theme } from './theme.type';
-import { useToggleTheme } from './useToggleTheme';
-import Sun from '@/assets/icons/sun.svg';
 import Moon from '@/assets/icons/moon.svg';
+import Sun from '@/assets/icons/sun.svg';
 
-interface IThemeSwitcher {
-	theme: Theme;
-}
+import { Theme } from './theme.type';
+import { useDarkTheme } from './useDarkTheme';
 
-export default function ThemeSwitcher({ theme: currentTheme }: IThemeSwitcher) {
-	const { theme, toogleTheme } = useToggleTheme(currentTheme);
+export default function ThemeSwitcher() {
+	const { theme, toogleTheme } = useDarkTheme();
 	return (
-		<button onClick={toogleTheme} className="z-10">
+		<button
+			onClick={toogleTheme}
+			className="size-10 z-10">
 			{theme === Theme.dark ? (
 				<Sun className="h-8 w-8 fill-yellow-500" />
 			) : (

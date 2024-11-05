@@ -9,9 +9,8 @@ export function Footer() {
 	return (
 		<footer
 			className={clsx(
-				'container mx-auto flex h-20 items-center justify-between bg-[var(--navbar)] px-6'
-			)}
-		>
+				'container mx-auto flex h-20 items-center justify-between bg-[var(--navbar)] px-6 transition duration-700'
+			)}>
 			<ul className="flex items-center gap-4">
 				<li>
 					<Link href="https://github.com/icediver">

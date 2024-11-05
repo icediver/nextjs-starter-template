@@ -4,11 +4,12 @@ import { User } from '@prisma/client';
 import { hash, verify } from 'argon2';
 import { z } from 'zod';
 
+import { ActionStateType } from '@/lib/create-safe.actions';
+import { db } from '@/lib/db.utils';
+
 import { createSession, deleteSession } from './create.sessions';
 import { LoginFormSchema, registerSchema } from './register.schema';
 import { FormState } from './register.type';
-import { ActionStateType } from '@/lib/create-safe.actions';
-import { db } from '@/lib/db.utils';
 
 export type InputType = z.infer<typeof registerSchema>;
 export type ReturnType = ActionStateType<InputType, User>;
@@ -78,6 +79,7 @@ export async function login(formData: InputLoginType): Promise<FormState> {
 
 	// 4. If login successful, create a session for the user and redirect
 	const userId = user.id.toString();
+
 	await createSession(userId);
 }
 
