@@ -4,7 +4,6 @@ import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 
 import ThemeSwitcher from '@/components/ui/theme-switcher/ThemeSwitcher';
-import { Theme } from '@/components/ui/theme-switcher/theme.type';
 import { UserButton } from '@/components/ui/user-button';
 
 import styles from './Header.module.scss';

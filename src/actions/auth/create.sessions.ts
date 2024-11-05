@@ -1,7 +1,8 @@
+import 'server-only';
+
 import { SignJWT, jwtVerify } from 'jose';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
-import 'server-only';
 
 import { SessionPayload } from './register.type';
 
@@ -47,7 +48,6 @@ export async function verifySession() {
 
 	const session = await decrypt(cookie);
 
-	console.log('verifySession', session);
 	if (!session?.userId) {
 		redirect('/login');
 	}
