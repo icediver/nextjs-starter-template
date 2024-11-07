@@ -4,10 +4,13 @@ import { SignJWT, jwtVerify } from 'jose';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 
-import { SessionPayload } from './register.type';
+import { SessionPayload } from './auth.type';
 
 const secretKey = process.env.SECRET;
 const key = new TextEncoder().encode(secretKey);
+
+const TOKEN_EXPIRATION_ACCESS = '1h';
+const TOKEN_EXPIRATION_REFRESH = '7d';
 
 export async function encrypt(payload: SessionPayload) {
 	return new SignJWT(payload)

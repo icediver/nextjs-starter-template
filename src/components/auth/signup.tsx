@@ -1,8 +1,10 @@
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useQueryClient } from '@tanstack/react-query';
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
 import { z } from 'zod';
 
 import { DottedSeparator } from '@/components/ui/dotted-separator';
@@ -23,14 +25,13 @@ import {
 } from '@/components/ui/shadcn/form';
 import { Input } from '@/components/ui/shadcn/input';
 
-import { createUser } from '@/actions/auth/register.actions';
-import { registerSchema } from '@/actions/auth/register.schema';
+import { register } from '@/server/auth/auth.actions';
+import { RegisterSchema } from '@/server/auth/auth.schema';
 
-export function RegistrationForm() {
-	//const { mutate, isPending } = useRegister();
-
-	const form = useForm<z.infer<typeof registerSchema>>({
-		resolver: zodResolver(registerSchema),
+export function SignupForm() {
+	const queryClient = useQueryClient();
+	const form = useForm<z.infer<typeof RegisterSchema>>({
+		resolver: zodResolver(RegisterSchema),
 		defaultValues: {
 			name: '',
 			email: '',
@@ -38,10 +39,17 @@ export function RegistrationForm() {
 		},
 	});
 
-	function onSubmit(values: z.infer<typeof registerSchema>) {
-		//mutate({ json: values });
-		createUser(values);
-		//console.log(values);
+	async function onSubmit(values: z.infer<typeof RegisterSchema>) {
+		const result = await register(values);
+		queryClient.invalidateQueries({ queryKey: ['user'] });
+
+		if (result?.message) {
+			toast.error(result.message);
+		} else if (result?.errors) {
+			toast.error('Some Errors Occured');
+		} else {
+			toast.success('Login successful');
+		}
 	}
 
 	return (
@@ -67,8 +75,7 @@ export function RegistrationForm() {
 				<Form {...form}>
 					<form
 						className="space-y-4"
-						onSubmit={form.handleSubmit(onSubmit)}
-					>
+						onSubmit={form.handleSubmit(onSubmit)}>
 						<FormField
 							name="name"
 							control={form.control}
@@ -120,8 +127,7 @@ export function RegistrationForm() {
 						<Button
 							//disabled={isPending}
 							size="lg"
-							className="w-full"
-						>
+							className="w-full">
 							Register
 						</Button>
 					</form>
@@ -138,8 +144,7 @@ export function RegistrationForm() {
 					Already have an account?
 					<Link
 						className="text-blue-700"
-						href="/login"
-					>
+						href="/login">
 						&nbsp;Login
 					</Link>
 				</p>

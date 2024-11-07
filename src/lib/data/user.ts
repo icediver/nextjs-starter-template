@@ -6,10 +6,11 @@ import { cache } from 'react';
 
 import { db } from '../db.utils';
 
-import { verifySession } from '@/actions/auth/create.sessions';
+import { SessionService } from '@/server/auth/session.service';
 
 export const getUser = cache(async () => {
-	const session = await verifySession();
+	const sessionService = new SessionService();
+	const session = await sessionService.verify();
 	if (!session) return null;
 
 	try {
@@ -21,6 +22,7 @@ export const getUser = cache(async () => {
 				email: true,
 				avatarPath: true,
 				rights: true,
+				verificationToken: true,
 			},
 		});
 

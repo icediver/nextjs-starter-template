@@ -11,8 +11,9 @@ import {
 	DropdownMenuTrigger,
 } from '@/components/ui/shadcn/dropdown-menu';
 
-import { logout } from '@/actions/auth/register.actions';
 import { useCurrent } from '@/lib/data/useCurrent';
+
+import { logout } from '@/server/auth/auth.actions';
 
 export function UserButton() {
 	const { user, isLoading } = useCurrent();
@@ -29,7 +30,7 @@ export function UserButton() {
 		return null;
 	}
 
-	const { name, email } = user;
+	const { name, email, verificationToken } = user;
 
 	const avatarFallback = name
 		? name.charAt(0).toUpperCase()
@@ -62,6 +63,9 @@ export function UserButton() {
 							{name || 'User'}
 						</p>
 						<p className="text-xs text-neutral-500">{email}</p>
+						{verificationToken && (
+							<p className="text-xs text-amber-700">Email is not verified</p>
+						)}
 					</div>
 				</div>
 				<DottedSeparator className="mb-1" />

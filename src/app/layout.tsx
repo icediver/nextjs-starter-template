@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import { cookies } from 'next/headers';
-
-import { Toaster } from '@/components/ui/shadcn/toaster';
+import { Toaster } from 'sonner';
 
 import '../assets/styles/globals.scss';
 
@@ -49,7 +48,10 @@ export default async function RootLayout({
 		<html lang="en">
 			<body
 				className={`transition duration-700 ${geistSans.variable} ${geistMono.variable} antialiased ${theme}`}>
-				<Toaster />
+				<Toaster
+					richColors
+					position="top-center"
+				/>
 				<QueryProvider>{children}</QueryProvider>
 			</body>
 		</html>

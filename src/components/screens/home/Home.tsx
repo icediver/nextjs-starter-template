@@ -1,4 +1,8 @@
+'use client';
+
 import { Button } from '@/components/ui/button/Button';
+
+import { sendVerification } from '@/server/mail/mail.service';
 
 export function Home() {
 	return (
@@ -8,7 +12,16 @@ export function Home() {
 			</section>
 			<section className="flex flex-1 flex-col items-center justify-center gap-6 bg-[var(--second-section-background)] px-6">
 				<h1>Second section</h1>
-				<Button>Button</Button>
+				<Button
+					onClick={() =>
+						sendVerification({
+							sendTo: 'artem_bsk@mail.ru',
+							verificationLink: 'http://localhost:3000/api/auth/verify',
+							name: 'Artem',
+						})
+					}>
+					Button
+				</Button>
 			</section>
 		</main>
 	);

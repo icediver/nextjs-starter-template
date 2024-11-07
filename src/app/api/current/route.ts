@@ -1,10 +1,12 @@
 import { NextResponse } from 'next/server';
 
-import { verifySession } from '@/actions/auth/create.sessions';
 import { db } from '@/lib/db.utils';
 
+import { SessionService } from '@/server/auth/session.service';
+
 export async function GET() {
-	const session = await verifySession();
+	const sessionService = new SessionService();
+	const session = await sessionService.verify();
 
 	if (!session) {
 		return new NextResponse('Unauthorized', {
